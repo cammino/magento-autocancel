@@ -23,7 +23,7 @@
                     <cron_expr>0 */1 * * *</cron_expr>
                 </schedule>
                 <run>
-                    <model>autocancel/job::adjust</model>
+                    <model>autocancel/job::autocancel</model>
                 </run>
             </cammino_autocancel_job>
         </jobs>
