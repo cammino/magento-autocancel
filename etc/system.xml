@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <autocancel translate="label">
+            <label>Cammino - Cancelamento Automático</label>
+            <sort_order>21</sort_order>
+        </autocancel>
+    </tabs>
+    <sections>
+        <autocancel>
+            <label>Cancelamento Automático</label>
+            <tab>autocancel</tab>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>Configurações</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Ativo</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <hours_to_expire translate="label">
+                            <label>Horas até a expiração</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>required-entry validate-number validate-greater-than-zero</validate>
+                            <comment><![CDATA[Horas até que a cobrança seja expirada e não seja mais possível pagar (pedido será cancelado).]]></comment>
+                        </hours_to_expire>
+                        <payment_methods transalete="label">
+                            <label>Métodos de pagamento</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>Cammino_Autocancel_Model_Source_Methods</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </payment_methods>
+                    </fields>
+                </general>
+            </groups>
+        </autocancel>
+    </sections>
+</config>

@@ -1,0 +1,31 @@
+<config>
+    <modules>
+        <Cammino_Autocancel>
+            <version>1.0.0</version>
+        </Cammino_Autocancel>
+    </modules>
+    <global>
+        <models>
+            <autocancel>
+                <class>Cammino_Autocancel_Model</class>
+            </autocancel>
+        </models>
+        <helpers>
+            <autocancel>
+                <class>Cammino_Autocancel_Helper</class>
+            </autocancel>
+        </helpers>
+    </global>
+    <crontab>
+        <jobs>
+            <cammino_autocancel_job>
+                <schedule>
+                    <cron_expr>0 */1 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>autocancel/job::adjust</model>
+                </run>
+            </cammino_autocancel_job>
+        </jobs>
+    </crontab>
+</config>
