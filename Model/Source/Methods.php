@@ -3,17 +3,12 @@ class  Cammino_Autocancel_Model_Source_Methods
 {
     public function toOptionArray()
     {
-        $allActivePaymentMethods = Mage::getModel('payment/config')->getActiveMethods();
+        $allAvailablePaymentMethods = Mage::getModel('payment/config')->getAllMethods();
         $methods = [];
-        foreach ($allActivePaymentMethods as $method) {
-            Mage::log($method, null, 'autocancel.log');
+        foreach ($allAvailablePaymentMethods as $method) {
+            $paymentTitle = Mage::getStoreConfig('payment/'.$method->getId().'/title');
+            $methods[] = ["value"=>$method->getId(), "label" => $paymentTitle];
         }
-        
-        $methods = array(
-            array("value" => "", "label" => ""),
-            array("value" => "kg", "label" => "kilogramas"),
-            array("value" => "g", "label" => "gramas"),
-        );
 
         return $methods;
     }
