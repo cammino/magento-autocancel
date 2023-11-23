@@ -19,7 +19,6 @@ class Cammino_Autocancel_Model_Job
             foreach ($paymentCollection as $payment) {
                 try {
                     $order =  Mage::getModel('sales/order')->load($payment->getId());
-                    Mage::log('Identificou a order: ' . $order->getId(), null, 'autocancel.log');
                     if (($order->getCreatedAt() < $fromDate) && ($order->getStatus() == 'pending')) {
                         Mage::log('ORDER COM CREATED AT MENOR QUE O FROM DATE E STATUS PENDING! ' . $order->getId(), null, 'autocancel.log');
                         if ($order->canCancel()) {
